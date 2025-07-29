@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.navbar{
+    /* height: 66px; */
+    box-sizing: border-box;
+    padding: 15px 16px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    top: 0;
+    position: fixed;
+    background-color: black;
+    z-index: 10;
+}
+.navbar-left{
+    gap: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: fit-content;
+}
+
+.navbarHamberger{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.navbarHamberger:hover{
+   background-color: rgb(81, 79, 79);
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+.navbar-youtube{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    gap: 3px;
+    text-decoration: none;
+}
+.navbar-utubetitle{
+    font-size: 26px;
+    /* word-spacing: 0px; */
+    letter-spacing: -1.5px;
+    font-family: "oswald","sans-serif";
+    font-optical-sizing: auto;
+    font-style: normal ;
+    font-family: "Poppins", sans-serif;
+  font-weight:  370;
+     
+ 
+}
+/* .... middle navbar.... */
+
+
+.navbar-middle{
+    display: flex;
+    width: 50%;
+}
+.navbar-searchbox{
+    width: 80%;
+    display: flex;
+}
+.searchbox{
+    width: 100%;
+    padding: 15px;
+    /* height: 40px; */
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+      border: 1px solid rgb(83, 81, 81);
+    background-color: #121212;
+    color:white;
+    font-size: 16px;
+    padding-left: 30px;
+    &:focus{
+        outline: none;
+    }
+    &::placeholder{
+        font-size: 22px;
+    }
+}
+.navbar-searchiconbox{
+    cursor: pointer;
+    width: 100px;
+    border: 1px solid rgb(83, 81, 81);
+    background-color: rgb(62, 61, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius:30px;
+    border-top-right-radius: 30px;
+    
+}
+
+.navbar-mike{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(62, 61, 61);
+     border-radius: 50%;
+     width: 50px;
+     margin-left: 14px;
+     height: 50px;
+     cursor:  pointer;
+
+}
+.navbar-mike:hover{
+        background-color: rgb(81, 79, 79);
+}
+
+
+/* ........... navabr right............  */
+
+
+.navbar-right{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.navbar-right-logo{
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.navbar-model{
+    position: absolute;
+    top: 160%;  
+    width: 110%;
+    z-index: 20;
+    color: white;
+}
+
+.navbar-model-option{
+    background-color: rgb(71, 69, 69);
+    padding: 10%;
+    cursor: pointer;
+    /* &:hover{
+    }
+    background-color: rgb(0, 0, 0); */
+}
+.navbar-model-option:hover{
+     background-color: rgb(0, 0, 0);
+}
