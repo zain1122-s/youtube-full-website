@@ -12,9 +12,9 @@ import DownloadIcon from "@mui/icons-material/Download";
 import SmartDisplayOutlinedIcon from "@mui/icons-material/SmartDisplayOutlined";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 
-function Sidenavabar() {
+function Sidenavabar({sideNavbar}) {
   return (
-    <div className= "home-sidenavbar" >
+    <div className={sideNavbar? "home-sidenavbar" : "home-sidenavbarhide"} >
       <div className="home-sidenavbartop">
         <div className={`home-sidenavbartopoption`}>
           <HomeIcon />

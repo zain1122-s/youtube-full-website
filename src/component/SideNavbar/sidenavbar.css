@@ -2,12 +2,15 @@
      display: none;
 } */
 
+.home-sidenavbarhide{
+    display: none;
+}
 .home-sidenavbar{
     display: flex;
     flex-direction: column;
     flex: 0.16 1;
     box-sizing: border-box;
-    height: 95vh;
+    height: 92  vh;
     overflow-y: auto;
     position: fixed;
     top: 70px;

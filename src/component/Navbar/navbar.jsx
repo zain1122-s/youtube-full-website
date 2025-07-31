@@ -9,7 +9,7 @@ import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotficationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
 import Sidenavabar from "../SideNavbar/sidenavabar";
-const Navbar = () => {
+const Navbar = ({ setsideNavbarFunc, sideNavbar }) => {
   const [userPic, setUserPic] = useState(
     "https://t4.ftcdn.net/jpg/07/88/67/21/360_F_788672190_maGwfDtey1ep9BqZsLO9f6LaUkIBMNt1.jpg"
   );
@@ -18,13 +18,15 @@ const Navbar = () => {
   const handleClickModel = () => {
     setnavbarModel((prev) => !prev);
   };
-
+ const toggleSidebar = () => {
+    setsideNavbarFunc(!sideNavbar); // This line uses the prop correctly
+  };
  
   return (
 
     <div className="navbar">
       <div className="navbar-left">
-        <div className="navbarHamberger" >
+        <div className="navbarHamberger" onClick={toggleSidebar} >
           <MenuIcon  sx={{fontSize:"40px",color:"white"}}/>
         </div>
         <div className="navbar-youtube">

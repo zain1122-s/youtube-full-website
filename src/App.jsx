@@ -5,12 +5,16 @@ import { useState } from 'react'
 
 
 function App() {
+const [sideNavbar, setSideNavbar] = useState(true);
 
+const setsideNavbarFunc=(value)=>{
+setSideNavbar(value)
+}
 
   return (
     <div className='App'>
-     <Navbar />
-     <Home />
+    <Navbar sideNavbar={sideNavbar} setsideNavbarFunc={setsideNavbarFunc} />
+     <Home sideNavbar={sideNavbar}/>
     </div>
   )
 }
