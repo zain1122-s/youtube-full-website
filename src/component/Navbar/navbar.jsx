@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./navbar.css";
-// import { CiMenuBurger } from "react-icons/ci";
 import { FaYoutube } from "react-icons/fa";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
-import NotficationsIcon from "@mui/icons-material/Notifications";
+import NotificationsIcon from "@mui/icons-material/Notifications"; // spelling was wrong
 import PersonIcon from "@mui/icons-material/Person";
-import Sidenavabar from "../SideNavbar/sidenavabar";
-const Navbar = ({ setsideNavbarFunc, sideNavbar }) => {
+import Homepage from "../HomePage/homepage";
+
+const Navbar = ({setSideNavabar,sideNavbar}) => {
   const [userPic, setUserPic] = useState(
     "https://t4.ftcdn.net/jpg/07/88/67/21/360_F_788672190_maGwfDtey1ep9BqZsLO9f6LaUkIBMNt1.jpg"
   );
@@ -18,16 +18,16 @@ const Navbar = ({ setsideNavbarFunc, sideNavbar }) => {
   const handleClickModel = () => {
     setnavbarModel((prev) => !prev);
   };
- const toggleSidebar = () => {
-    setsideNavbarFunc(!sideNavbar); // This line uses the prop correctly
-  };
+const togglebutton=()=>{
+  setSideNavabar(!sideNavbar)
+}
  
-  return (
 
+  return (
     <div className="navbar">
       <div className="navbar-left">
-        <div className="navbarHamberger" onClick={toggleSidebar} >
-          <MenuIcon  sx={{fontSize:"40px",color:"white"}}/>
+        <div className="navbarHamberger" onClick={togglebutton} >
+          <MenuIcon sx={{ fontSize: "40px", color: "white" }} />
         </div>
         <div className="navbar-youtube">
           <FaYoutube size={41} style={{ color: "red" }} />
@@ -51,11 +51,10 @@ const Navbar = ({ setsideNavbarFunc, sideNavbar }) => {
         <VideoCallIcon
           sx={{ fontSize: "30px", cursor: "pointer", color: "white" }}
         />
-        <NotficationsIcon
+        <NotificationsIcon
           sx={{ fontSize: "30px", cursor: "pointer", color: "white" }}
         />
-        {/* <PersonIcon sx={{fontSize:"30px", cursor:"pointer", color:"white"}}/>
-         */}
+        {/* <PersonIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} /> */}
 
         <img
           onClick={handleClickModel}
@@ -66,8 +65,8 @@ const Navbar = ({ setsideNavbarFunc, sideNavbar }) => {
 
         {navbarModel && (
           <div className="navbar-model">
-            <div className="navbar-model-option">Profile </div>
-            <div className="navbar-model-option">Logout </div>
+            <div className="navbar-model-option">Profile</div>
+            <div className="navbar-model-option">Logout</div>
             <div className="navbar-model-option">Login</div>
           </div>
         )}
@@ -77,5 +76,3 @@ const Navbar = ({ setsideNavbarFunc, sideNavbar }) => {
 };
 
 export default Navbar;
-
- 

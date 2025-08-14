@@ -1,20 +1,28 @@
  import './App.css'
 import Navbar from './component/Navbar/navbar'
-import Home from './pages/Home/home'
 import { useState } from 'react'
-
+import Homepage from './component/HomePage/homepage'
+import {Route,Routes} from 'react-router-dom'
 
 function App() {
-const [sideNavbar, setSideNavbar] = useState(true);
 
-const setsideNavbarFunc=(value)=>{
-setSideNavbar(value)
+
+const [sideNavbar,setSideNavabar]=useState(true)
+
+const setSideNavbarFunc=(value)=>{
+  setSideNavabar(value)
+  
 }
 
-  return (
+
+
+return (
     <div className='App'>
-    <Navbar sideNavbar={sideNavbar} setsideNavbarFunc={setsideNavbarFunc} />
-     <Home sideNavbar={sideNavbar}/>
+    <Navbar setSideNavabar={setSideNavabar}  sideNavbar={sideNavbar} />
+    <Routes>
+      <Route path='/' element={<Homepage sideNavbar={sideNavbar}/>}/>
+    </Routes>
+
     </div>
   )
 }
