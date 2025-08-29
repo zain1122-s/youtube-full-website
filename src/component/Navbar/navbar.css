@@ -12,14 +12,16 @@
     top: 0;
     position: fixed;
     background-color: black;
-    z-index: 10;
+    z-index: 1000;
 }
 .navbar-left{
     gap: 10px;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     width: fit-content;
+    flex-shrink: 0;
+    min-width: 120px;
 }
 
 .navbarHamberger{
@@ -29,12 +31,20 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1001;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
 }
 .navbarHamberger:hover{
-   background-color: rgb(81, 79, 79);
+   background-color: rgba(255, 255, 255, 0.2);
     height: 45px;
     width: 45px;
     border-radius: 50%;
+    transition: all 0.2s ease;
+    transform: scale(1.05);
 }
 .navbar-youtube{
     display: flex;
@@ -44,6 +54,11 @@
     color: white;
     gap: 3px;
     text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navbar-youtube:hover {
+    opacity: 0.8;
 }
 .navbar-utubetitle{
     font-size: 26px;
@@ -74,13 +89,16 @@
     /* height: 40px; */
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-      border: 1px solid rgb(83, 81, 81);
+       border: 1px solid rgb(83, 81, 81);
     background-color: #121212;
     color:white;
     font-size: 16px;
     padding-left: 30px;
+    transition: all 0.2s ease;
     &:focus{
         outline: none;
+        border-color: #065fd4;
+        box-shadow: 0 0 0 1px #065fd4;
     }
     &::placeholder{
         font-size: 22px;
@@ -125,6 +143,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    transition: all 0.3s ease;
 }
 .navbar-right-logo{
     width: 30px;
@@ -133,9 +152,9 @@
 }
 .navbar-model{
     position: absolute;
-    top: 160%;  
+    top: 160%;
     width: 110%;
-    z-index: 20;
+    z-index: 1001;
     color: white;
 }
 
@@ -149,6 +168,114 @@
 }
 .navbar-model-option:hover{
      background-color: rgb(0, 0, 0);
+ }
+
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .navbar-middle {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 15px;
+  }
+
+  .navbar-middle {
+    width: 40%;
+    min-width: 200px;
+  }
+
+  .searchbox {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .searchbox::placeholder {
+    font-size: 16px;
+  }
+
+  .navbar-searchiconbox {
+    width: 60px;
+  }
+
+  .navbar-mike {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  .navbar-utubetitle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .navbar-middle {
+    width: 35%;
+    min-width: 150px;
+  }
+
+  .searchbox {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+
+  .searchbox::placeholder {
+    font-size: 14px;
+  }
+
+  .navbar-searchiconbox {
+    width: 50px;
+  }
+
+  .navbar-mike {
+    width: 35px;
+    height: 35px;
+    margin-left: 8px;
+  }
+
+  .navbar-utubetitle {
+    font-size: 18px;
+    letter-spacing: -1px;
+  }
+
+  .navbar-right {
+    gap: 10px;
+  }
+
+  .navbar-right-logo {
+    width: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-middle {
+    display: none;
+  }
+
+  .navbar-youtube {
+    margin-left: 10px;
+  }
+
+  .navbarHamberger {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbarHamberger:hover {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
 }
 
 

@@ -1,0 +1,502 @@
+/* Main Layout */
+.main-screen {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+  background-color: #181818;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Left Section */
+.left-side {
+  flex: 3;
+  margin-top: 80px;
+}
+
+.video-thumbnail {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.video-title {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+/* Channel Data */
+.channel-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.channel-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.subscribe-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.video-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.like-dislike {
+  display: flex;
+  background: #333;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.like-btn,
+.dislike-btn,
+.share-btn,
+.save-btn {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.like-btn:hover,
+.dislike-btn:hover,
+.share-btn:hover,
+.save-btn:hover {
+  background: #444;
+}
+
+.like-btn.liked {
+  background: #065fd4;
+  color: white;
+}
+
+.like-btn.liked:hover {
+  background: #0a7dff;
+}
+
+/* Comments */
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment {
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Right Section */
+.right-side {
+  flex: 2;
+  margin-top: 70px;
+}
+
+.suggested-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-card {
+  display: flex;
+  gap: 10px;
+  background: #222;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.video-info{
+  display: flex;
+  flex-direction: column;
+}
+.video-card img {
+  width: 150px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.video-card:hover {
+  background: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.video-info h4 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.video-info p {
+  font-size: 12px;
+  color: gray;
+}
+
+.video-info span {
+  font-size: 12px;
+  color: lightgray;
+}
+
+.add-comment {
+  display: flex;
+  align-items: flex-start;
+  margin: 15px 0;
+}
+
+.user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.input-area {
+  flex: 1;
+}
+
+.input-area input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+  padding: 8px 5px;
+  font-size: 14px;
+}
+
+.comment-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background: transparent;
+  border: none;
+  color: gray;
+  cursor: pointer;
+} 
+
+.comment-btn {
+  background: #065fd4;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.comment-btn:disabled {
+  background: red;
+  cursor: not-allowed;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  background: #333;
+}
+
+/* Hide hamburger menu when sidebar is open */
+.hamburger-menu.hidden {
+  display: none;
+}
+
+/* Ensure main screen adjusts for sidebar */
+.main-screen {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.main-screen.sidebar-open {
+  margin-left: 260px;
+}
+
+/* Sidebar Styles */
+.side-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 260px;
+  background: #121212;
+  z-index: 999;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  color: white;
+  padding-top: 80px;
+}
+
+/* Sidebar sections */
+.side-navbar .first-section {
+  padding: 10px 0;
+}
+
+.side-navbar .second-navbar {
+  padding: 24px 0 0 20px;
+  gap: 20px;
+}
+
+.side-navbar .home-sidenavbarbottom {
+  padding: 24px 0 0 20px;
+  gap: 20px;
+}
+
+/* Sidebar options */
+.side-navbar .home-sidenavbartopoption {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+}
+
+.side-navbar .home-sidenavbartopoption:hover {
+  background-color: #272727;
+}
+
+.side-navbar .home-sidenavbartopoptiontitle {
+  color: white;
+  font-weight: 600;
+}
+
+/* Sidebar lines */
+.side-navbar .line,
+.side-navbar .line-2 {
+  background-color: gray;
+  width: 173px;
+  height: 1px;
+  display: flex;
+  border-radius: 10px;
+  margin-left: 13px;
+}
+
+/* Icons in sidebar */
+.side-navbar .icon {
+  font-size: 20px;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .main-screen {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .left-side {
+    flex: 2.5;
+  }
+
+  .right-side {
+    flex: 1.5;
+  }
+}
+
+@media (max-width: 1024px) {
+  .video-thumbnail {
+    max-width: 750px;
+  }
+
+  .video-title {
+    font-size: 18px;
+  }
+
+  .suggested-list .video-card img {
+    width: 130px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-screen {
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .left-side {
+    flex: none;
+    margin-top: 60px;
+  }
+
+  .right-side {
+    flex: none;
+    margin-top: 0;
+  }
+
+  .video-thumbnail {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .video-title {
+    font-size: 16px;
+  }
+
+  .channel-data {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .video-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .suggested-list {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .hamburger-menu {
+    top: 15px;
+    left: 15px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-screen {
+    padding: 8px;
+  }
+
+  .left-side {
+    margin-top: 50px;
+  }
+
+  .video-title {
+    font-size: 15px;
+  }
+
+  .channel-info {
+    gap: 10px;
+  }
+
+  .channel-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .subscribe-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  .video-actions {
+    gap: 6px;
+  }
+
+  .like-btn, .dislike-btn, .share-btn, .save-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .suggested-list .video-card {
+    padding: 6px;
+    gap: 8px;
+  }
+
+  .suggested-list .video-card img {
+    width: 110px;
+    height: 70px;
+  }
+
+  .suggested-list .video-info h4 {
+    font-size: 13px;
+  }
+
+  .suggested-list .video-info p,
+  .suggested-list .video-info span {
+    font-size: 11px;
+  }
+
+  .comment-section h2 {
+    font-size: 16px;
+  }
+
+  .hamburger-menu {
+    top: 12px;
+    left: 12px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-screen {
+    padding: 5px;
+  }
+
+  .video-title {
+    font-size: 14px;
+  }
+
+  .channel-text h3 {
+    font-size: 14px;
+  }
+
+  .channel-text p {
+    font-size: 12px;
+  }
+
+  .suggested-list .video-card img {
+    width: 100px;
+    height: 60px;
+  }
+
+  .hamburger-menu {
+    top: 10px;
+    left: 10px;
+    padding: 5px;
+  }
+}

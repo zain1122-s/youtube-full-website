@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { FaYoutube } from "react-icons/fa";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -7,9 +8,10 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsIcon from "@mui/icons-material/Notifications"; // spelling was wrong
 import PersonIcon from "@mui/icons-material/Person";
-import Homepage from "../HomePage/homepage";
+import Homepage from "../homepage/homepage";
 
 const Navbar = ({setSideNavabar,sideNavbar}) => {
+  const navigate = useNavigate();
   const [userPic, setUserPic] = useState(
     "https://t4.ftcdn.net/jpg/07/88/67/21/360_F_788672190_maGwfDtey1ep9BqZsLO9f6LaUkIBMNt1.jpg"
   );
@@ -18,9 +20,14 @@ const Navbar = ({setSideNavabar,sideNavbar}) => {
   const handleClickModel = () => {
     setnavbarModel((prev) => !prev);
   };
-const togglebutton=()=>{
-  setSideNavabar(!sideNavbar)
-}
+
+  const togglebutton = () => {
+    setSideNavabar(!sideNavbar)
+  }
+
+  const handleLogoClick = () => {
+    navigate('/');
+  }
  
 
   return (
@@ -29,7 +36,7 @@ const togglebutton=()=>{
         <div className="navbarHamberger" onClick={togglebutton} >
           <MenuIcon sx={{ fontSize: "40px", color: "white" }} />
         </div>
-        <div className="navbar-youtube">
+        <div className="navbar-youtube" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
           <FaYoutube size={41} style={{ color: "red" }} />
           <div className="navbar-utubetitle">YouTube</div>
         </div>
