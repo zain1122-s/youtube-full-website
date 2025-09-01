@@ -55,6 +55,17 @@
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.subscribe-btn.subscribed {
+  background-color: #272727;
+  color: #aaa;
+}
+
+.subscribe-btn.subscribed:hover {
+  background-color: #3a3a3a;
+  color: #fff;
 }
 
 .video-actions {
@@ -102,6 +113,15 @@
   background: #0a7dff;
 }
 
+.dislike-btn.disliked {
+  background: #f44336;
+  color: white;
+}
+
+.dislike-btn.disliked:hover {
+  background: #d32f2f;
+}
+
 /* Comments */
 .comment-section {
   margin-top: 20px;
@@ -109,9 +129,39 @@
 
 .comment {
   background: #222;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  border-left: 3px solid #065fd4;
+  transition: all 0.2s ease;
+}
+
+.comment:hover {
+  background: #2a2a2a;
+  transform: translateY(-1px);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.comment-header strong {
+  color: #fff;
+  font-size: 14px;
+}
+
+.comment-timestamp {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.comment-text {
+  color: #ddd;
+  line-height: 1.4;
+  margin: 0;
 }
 
 /* Right Section */
@@ -140,11 +190,27 @@
   display: flex;
   flex-direction: column;
 }
+.video-card .thumbnail-container {
+  position: relative;
+}
+
 .video-card img {
   width: 150px;
   height: 90px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+.duration-overlay {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .video-card:hover {

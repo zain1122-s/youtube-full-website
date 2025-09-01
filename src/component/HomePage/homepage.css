@@ -9,6 +9,7 @@
   margin-left: 0;
   transition: all 0.3s ease;
 }
+
 .hidehomepage{
   display: block;
 }
@@ -21,35 +22,94 @@
   color: white;
 }
 
-/* Sidebar default (collapsed) */
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  background: #333;
+}
+
+/* Hide hamburger menu when sidebar is open */
+.hamburger-menu.hidden {
+  display: none;
+}
+
+/* Sidebar Styles */
 .side-navbar {
-  width: 260px;
-  background-color: #121212;
-  padding-top: 80px;
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  width: 260px;
+  background: #121212;
   z-index: 999;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  color: white;
+  padding-top: 80px;
 }
 
-.side-navbar.open {
-  transform: translateX(0);
-}
 
 
-
-/* Section container */
-.first-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Sidebar sections */
+.side-navbar .first-section {
   padding: 10px 0;
+}
+
+.side-navbar .second-navbar {
+  padding: 24px 0 0 20px;
+  gap: 20px;
+}
+
+.side-navbar .home-sidenavbarbottom {
+  padding: 24px 0 0 20px;
+  gap: 20px;
+}
+
+/* Sidebar options */
+.side-navbar .home-sidenavbartopoption {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+}
+
+.side-navbar .home-sidenavbartopoption:hover {
+  background-color: #272727;
+}
+
+.side-navbar .home-sidenavbartopoptiontitle {
+  color: white;
+  font-weight: 600;
+}
+
+/* Sidebar lines */
+.side-navbar .line,
+.side-navbar .line-2 {
+  background-color: gray;
+  width: 173px;
+  height: 1px;
+  display: flex;
+  border-radius: 10px;
+  margin-left: 13px;
 }
 
 /* Nav item */
@@ -69,7 +129,8 @@
 
 /* Icon */
 .icon {
-  font-size: 30px;
+  font-size: 20px;
+  color: white;
 }
 
 /* Label is hidden in collapsed state */
@@ -122,16 +183,17 @@ font-weight: 600;
 } */
 
 .homepage {
-padding-top: 80px;
-margin: 10px;
-flex: 1;
-width: 100%;
-transition: all 0.3s ease;
+  margin-left: 0;
+  padding: 20px;
+  background-color: #0f0f0f;
+  color: white;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+  padding-top: 80px;
 }
 
-.homepage.sidebar-visible {
-  margin-left: 250px;
-  width: calc(100% - 250px);
+.homepage.sidebar-open {
+  margin-left: 260px;
 }
 
 
@@ -144,17 +206,34 @@ transition: all 0.3s ease;
 
 .videos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  padding: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
   max-width: 100%;
   transition: all 0.3s ease;
 }
 
+.videos-grid .thumbnail-container {
+  position: relative;
+}
+
 .videos-grid .thumbnail{
   width: 100%;
-  height: auto;
+  height: 180px;
+  object-fit: cover;
   border-radius: 8px;
+}
+
+.duration-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .videos-grid .video-card {
   background-color: #181818;
@@ -166,25 +245,29 @@ transition: all 0.3s ease;
   transition: all 0.2s ease;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #303030;
 }
 
 .video-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  background-color: #202020;
 }
 
 
 .videos-grid .video-card .video-info {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 12px;
   gap: 12px;
+  align-items: flex-start;
 }
 
 .videos-grid .video-card .video-info .channel-img {
-  width: 20px ;
-  height: 26px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  margin-right: 12px;
 }
 
 
@@ -211,6 +294,35 @@ transition: all 0.3s ease;
   font-size: 12px;
   color: #777;
   margin: 0;
+}
+
+/* Subscribe Button Styles */
+.subscribe-btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.subscribe-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.subscribe-btn.subscribed {
+  background-color: #272727;
+  color: #aaa;
+}
+
+.subscribe-btn.subscribed:hover {
+  background-color: #3a3a3a;
+  color: #fff;
 }
 
 /* Responsive adjustments */

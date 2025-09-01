@@ -8,7 +8,6 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsIcon from "@mui/icons-material/Notifications"; // spelling was wrong
 import PersonIcon from "@mui/icons-material/Person";
-import Homepage from "../homepage/homepage";
 
 const Navbar = ({setSideNavabar,sideNavbar}) => {
   const navigate = useNavigate();
@@ -16,6 +15,7 @@ const Navbar = ({setSideNavabar,sideNavbar}) => {
     "https://t4.ftcdn.net/jpg/07/88/67/21/360_F_788672190_maGwfDtey1ep9BqZsLO9f6LaUkIBMNt1.jpg"
   );
   const [navbarModel, setnavbarModel] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleClickModel = () => {
     setnavbarModel((prev) => !prev);
@@ -27,6 +27,20 @@ const Navbar = ({setSideNavabar,sideNavbar}) => {
 
   const handleLogoClick = () => {
     navigate('/');
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // In a real app, this would navigate to search results
+      console.log('Searching for:', searchQuery);
+      // For now, just clear the search
+      setSearchQuery("");
+    }
+  }
+
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
   }
  
 
@@ -43,10 +57,16 @@ const Navbar = ({setSideNavabar,sideNavbar}) => {
       </div>
 
       <div className="navbar-middle">
-        <div className="navbar-searchbox">
-          <input type="text" className="searchbox" placeholder="search" />
-        </div>
-        <div className="navbar-searchiconbox">
+        <form className="navbar-searchbox" onSubmit={handleSearch}>
+          <input
+            type="text"
+            className="searchbox"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+          />
+        </form>
+        <div className="navbar-searchiconbox" onClick={handleSearch}>
           <SearchIcon sx={{ fontSize: "28px", color: "white" }} />
         </div>
         <div className="navbar-mike">

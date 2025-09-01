@@ -5,29 +5,34 @@
  import {Route,Routes} from 'react-router-dom'
  import Video from './component/video/video'
  import Channel from './component/channel/channel'
+ import Shorts from './component/shorts/shorts'
+ import { SubscriptionProvider } from './context/SubscriptionContext'
 function App() {
 
 
 const [sideNavbar,setSideNavabar]=useState(true)
 
 const setSideNavbarFunc=(value)=>{
-  setSideNavabar(value)
-  
+ setSideNavabar(value)
+
 }
 
 
 
 return (
-    <div className='App'>
-    <Navbar setSideNavabar={setSideNavabar}  sideNavbar={sideNavbar} />
-    
-    <Routes>
-      <Route path='/' element={<Homepage sideNavbar={sideNavbar}/>}/>
-      <Route path='/watch/:id' element={<Video sideNavbar={sideNavbar} setSideNavbar={setSideNavabar}/>} />
-      <Route path='/channel/:channelName' element={<Channel sideNavbar={sideNavbar} setSideNavbar={setSideNavabar}/>} />
-    </Routes>
- 
-    </div>
+     <SubscriptionProvider>
+       <div className='App'>
+         <Navbar setSideNavabar={setSideNavabar}  sideNavbar={sideNavbar} />
+
+         <Routes>
+            <Route path='/' element={<Homepage sideNavbar={sideNavbar} setSideNavbar={setSideNavabar}/>} />
+            <Route path='/watch/:id' element={<Video sideNavbar={sideNavbar} setSideNavbar={setSideNavabar}/>} />
+            <Route path='/channel/:channelName' element={<Channel sideNavbar={sideNavbar} setSideNavbar={setSideNavabar}/>} />
+            <Route path='/shorts' element={<Shorts sideNavbar={sideNavbar} setSideNavbar={setSideNavabar}/>} />
+         </Routes>
+
+       </div>
+     </SubscriptionProvider>
   )
 }
 
