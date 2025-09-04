@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { IconName } from "react-icons/fa";
 const SubscriptionContext = createContext();
 
 export const useSubscriptions = () => {
