@@ -1,11 +1,11 @@
  import './App.css'
- import Navbar from './component/Navbar/navbar.jsx'
+ import Navbar from './component/Navbar/navbar'
  import { useState } from 'react'
- import Homepage from './component/homepage/homepage.jsx'
+ import Homepage from './component/homepage/homepage'
  import {Route,Routes} from 'react-router-dom'
- import Video from './component/video/video.jsx'
- import Channel from './component/channel/channel.jsx'
- import Shorts from './component/shorts/shorts.jsx'
+ import Video from './component/video/video'
+ import Channel from './component/channel/channel'
+ import Shorts from './component/shorts/shorts'
  import { SubscriptionProvider } from './context/SubscriptionContext'
 function App() {
 
